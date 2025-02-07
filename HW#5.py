@@ -11,8 +11,9 @@ print("Robin Singh".split())
 print("I love arrays they are my favorite".split())
 spisok = ['Ivan', 'Ivanou']
 stroka = 'Minsk Belarus'
+stroka = stroka.split()
 print(f"Привет, {spisok[0]} {spisok[1]}! Добро пожаловать в "
-      f"{stroka.split()[0]} {stroka.split()[1]}")
+      f"{stroka[0]} {stroka[1]}")
 print(" ".join(["I", "love", "arrays", "they", "are", "my", "favorite"]))
 spisok_2 = ['Privet', 22, 123, 123, 'sdfsdf', 445, 546456, 'Foo', 'Baz', 453]
 spisok_2.insert(2, "center")
