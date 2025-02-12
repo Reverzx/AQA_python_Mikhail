@@ -16,13 +16,13 @@ else:
 
 # Time converter
 time = '00:00'
-hours, minutes = time.split(':')
-if int(hours) < 12:
-    if int(hours) == 0:
-        print(f"12:{minutes} a.m.")
+hours_t, minutes_t = time.split(':')
+if int(hours_t) < 12:
+    if int(hours_t) == 0:
+        print(f"12:{minutes_t} a.m.")
     else:
-        print(f"{int(hours)}:{minutes} a.m.")
-elif int(hours) == 12:
-    print(f"12:{minutes} p.m.")
+        print(f"{int(hours_t)}:{minutes_t} a.m.")
+elif int(hours_t) == 12:
+    print(f"12:{minutes_t} p.m.")
 else:
-    print(f"{int(hours)-12}:{minutes} p.m.")
+    print(f"{int(hours_t)-12}:{minutes_t} p.m.")
