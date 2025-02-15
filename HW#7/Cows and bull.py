@@ -13,7 +13,7 @@ else:
                 bulls += 1
             if n[i] in a:
                 cows += 1
-        cows = cows - bulls
+        cows -= bulls
         if len(a) != len(set(a)):
             print('Не правильное число. Введите число с неповторяющимися цифрами')
         elif bulls == 4:
