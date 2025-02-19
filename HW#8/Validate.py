@@ -22,6 +22,6 @@ def solution(number):
         return False
 
 
-assert solution(4561261212345464) == False
-assert solution(4561261212345467) == True
-assert solution(378282246310005) == True
+assert not solution(4561261212345464)
+assert solution(4561261212345467)
+assert solution(378282246310005)

@@ -18,10 +18,10 @@ def solution(sequence):
         return False
 
 
-assert solution([1, 2, 3]) == True
-assert solution([1, 3, 2]) == True
-assert solution([1, 2, 1, 2]) == False
-assert solution([1, 3, 2, 1]) == False
-assert solution([1, 2, 3, 4, 5, 3, 5, 6]) == False
-assert solution([40, 50, 60, 10, 20, 30]) == False
-assert solution([40, 50, 60, 80, 10, 90]) == True
+assert solution([1, 2, 3])
+assert solution([1, 3, 2])
+assert not solution([1, 2, 1, 2])
+assert not solution([1, 3, 2, 1])
+assert not solution([1, 2, 3, 4, 5, 3, 5, 6])
+assert not solution([40, 50, 60, 10, 20, 30])
+assert solution([40, 50, 60, 80, 10, 90])
