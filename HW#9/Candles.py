@@ -1,19 +1,20 @@
-def solution(candle_number: int, make_new: int, all_candle=0,
-             ostatok=0) -> int:
+def solution(candle_number: int, make_new: int) -> int:
     """
     This function calculates how many candles you can get,
     including the remainder.
     """
-    if candle_number == 0:
-        return all_candle
-    else:
-        if ostatok >= make_new:
-            ostatok -= ostatok // make_new
+    def helper(candle_number: int, all_candle: int, ostatok: int) -> int:
+        if candle_number == 0:
+            return all_candle
         else:
-            ostatok += candle_number % make_new
-        all_candle += candle_number
-        candle_number = candle_number // make_new + ostatok // make_new
-        return solution(candle_number, make_new, all_candle, ostatok)
+            if ostatok >= make_new:
+                ostatok -= ostatok // make_new
+            else:
+                ostatok += candle_number % make_new
+            all_candle += candle_number
+            candle_number = candle_number // make_new + ostatok // make_new
+            return helper(candle_number, all_candle, ostatok)
+    return helper(candle_number, 0, 0)
 
 
 assert solution(5, 2) == 9
