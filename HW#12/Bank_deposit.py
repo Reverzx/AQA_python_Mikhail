@@ -26,7 +26,7 @@ class Bank:
             self.years = years
             self.data_clients[client_id]["start_balance"] = self.start_balance
             self.data_clients[client_id]["years"] = self.years
-            print(f"Открыт депозит клиента {self.data_clients[client_id]["name"]} с номером "
+            print(f"Открыт депозит клиента {self.data_clients[client_id]['name']} с номером "
                   f"{client_id}. Стартовый баланс {start_balance}."
                   f" Срок депозита - {years} год(а)")
         else:
