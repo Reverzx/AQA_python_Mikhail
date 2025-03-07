@@ -14,7 +14,8 @@ class CurrencyConverter:
         self.in_currency = in_currency
         self.amount = amount
         self.out_currency = out_currency
-        new_value = (self.dict_converter[in_currency] * self.amount) / self.dict_converter[out_currency]
+        new_value = ((self.dict_converter[in_currency] * self.amount) /
+                     self.dict_converter[out_currency])
         return round(new_value, 2), out_currency
 
 
