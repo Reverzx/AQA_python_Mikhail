@@ -2,8 +2,8 @@ import random
 
 
 class Card:
-    number_list = ["Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King",
-                   "Ace"]
+    number_list = ["Two", "Three", "Four", "Five", "Six", "Seven", "Eight",
+                   "Nine", "Ten", "Jack", "Queen", "King", "Ace"]
     mast_list = ["Spades", "Clubs", "Diamonds", "Hearts"]
 
     def __init__(self, number_list, mast_list):
