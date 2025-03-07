@@ -36,15 +36,15 @@ class Bank:
         deposit_itog = round(self.data_clients[client_id]["start_balance"] *
                              (1 + self.interest_rate / 12)
                              ** (12 * self.data_clients[client_id]["years"]), 2)
-        print(f"У клиента {self.data_clients[client_id]["name"]} с номером {client_id}"
+        print(f"У клиента {self.data_clients[client_id]['name']} с номером {client_id}"
               f" итоговый баланс по окончанию срока действия депозита "
-              f"через {self.data_clients[client_id]["years"]} год(а) будет равен "
+              f"через {self.data_clients[client_id]['years']} год(а) будет равен "
               f"{deposit_itog}")
         return deposit_itog
 
     def close_deposit(self, client_id):
         if self.data_clients[client_id]["start_balance"]:
-            print(f"Клиент {self.data_clients[client_id]["name"]} решает "
+            print(f"Клиент {self.data_clients[client_id]['name']} решает "
                   f"закрыть свой депозит")
             self.data_clients[client_id]["start_balance"] = None
             self.data_clients[client_id]["years"] = None
