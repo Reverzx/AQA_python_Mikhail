@@ -10,19 +10,20 @@ class Card:
         self.number_list = number_list
         self.mast_list = mast_list
 
+    def __repr__(self):
+        return f"{self.number_list} of {self.mast_list}" if self.mast_list != "None" \
+            else self.number_list
+
 
 class CardsDeck:
 
     def __init__(self):
-        self.deck = []
-        self.number_list = Card.number_list
-        self.mast_list = Card.mast_list
-        for i in self.number_list:
-            for j in self.mast_list:
-                self.deck.append(f'{i} of {j}')
+        self.cards = [Card(number, mast) for mast in Card.mast_list for number in Card.number_list]
+        self.cards.append(Card("Joker", "None"))
+        self.cards.append(Card("Joker", "None"))
 
     def shuffle(self):
-        random.shuffle(self.deck)
+        random.shuffle(self.cards)
 
 
 deck = CardsDeck()
@@ -36,4 +37,4 @@ while True:
     except ValueError:
         print("Ошибка: Введите число!")
 
-print(f'You card is: {deck.deck[card_number - 1]}')
+print(f'You card is: {deck.cards[card_number]}')

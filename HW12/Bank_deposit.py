@@ -1,3 +1,6 @@
+from HW13.Currency_converter import CurrencyConverter
+
+
 class Bank:
     interest_rate = 0.1
 
@@ -7,6 +10,7 @@ class Bank:
         self.years = None
         self.client_id = '0000001'
         self.data_clients = {}
+        self.converter = CurrencyConverter()
 
     def register_client(self, name):
         self.name = name
@@ -15,8 +19,9 @@ class Bank:
             "start_balance": None,
             "years": None
         }
-        print(f"Приветствуем нового клиента банка {name} "
-              f"с индивидуальным номером {self.client_id}")
+        if __name__ == "__main__":
+            print(f"Приветствуем нового клиента банка {name} "
+                  f"с индивидуальным номером {self.client_id}")
         self.client_id = f"{(int(self.client_id) + 1):07d}"
 
     def open_deposit_account(self, client_id, start_balance, years):
@@ -26,30 +31,49 @@ class Bank:
             self.years = years
             self.data_clients[client_id]["start_balance"] = self.start_balance
             self.data_clients[client_id]["years"] = self.years
-            print(f"Открыт депозит клиента {self.data_clients[client_id]['name']} с номером "
-                  f"{client_id}. Стартовый баланс {start_balance}."
-                  f" Срок депозита - {years} год(а)")
+            if __name__ == "__main__":
+                print(f"Открыт депозит клиента {self.data_clients[client_id]['name']} с номером "
+                      f"{client_id}. Стартовый баланс {start_balance}."
+                      f" Срок депозита - {years} год(а)")
         else:
-            print("Такого клиента не существует!")
+            if __name__ == "__main__":
+                print("Такого клиента не существует!")
 
     def calc_deposit_interest_rate(self, client_id):
         deposit_itog = round(self.data_clients[client_id]["start_balance"] *
                              (1 + self.interest_rate / 12)
                              ** (12 * self.data_clients[client_id]["years"]), 2)
-        print(f"У клиента {self.data_clients[client_id]['name']} с номером {client_id}"
-              f" итоговый баланс по окончанию срока действия депозита "
-              f"через {self.data_clients[client_id]['years']} год(а) будет равен "
-              f"{deposit_itog}")
+        if __name__ == "__main__":
+            print(f"У клиента {self.data_clients[client_id]['name']} с номером {client_id}"
+                  f" итоговый баланс по окончанию срока действия депозита "
+                  f"через {self.data_clients[client_id]['years']} год(а) будет равен "
+                  f"{deposit_itog}")
         return deposit_itog
+
+    # Добавил метод по конвертации валюты
+    def converter_deposit(self, client_id, out_currency):
+        if client_id not in self.data_clients:
+            print("Клиент отсутсвует в базе")
+            return None
+
+        deposit_itog = self.calc_deposit_interest_rate(client_id)
+        converted_value, currency = self.converter.exchange_currency("BYN",
+                                                                     deposit_itog, out_currency)
+
+        print(f"Депозит клиента {self.data_clients[client_id]['name']} "
+              f"в валюте {currency}: {converted_value}")
+        return converted_value, currency
 
     def close_deposit(self, client_id):
         if self.data_clients[client_id]["start_balance"]:
-            print(f"Клиент {self.data_clients[client_id]['name']} решает "
-                  f"закрыть свой депозит")
+            if __name__ == "__main__":
+                print(f"Клиент {self.data_clients[client_id]['name']} решает "
+                      f"закрыть свой депозит")
             self.data_clients[client_id]["start_balance"] = None
             self.data_clients[client_id]["years"] = None
         else:
-            print("Клиент сначала должен открыть депозит")
+            if __name__ == "__main__":
+                print("Клиент сначала должен открыть депозит")
 
 
 bank = Bank()
@@ -60,6 +84,7 @@ bank.open_deposit_account('0000002', start_balance=2000, years=2)
 
 bank.calc_deposit_interest_rate('0000001')
 bank.calc_deposit_interest_rate('0000002')
+bank.converter_deposit('0000001', 'USD')
 
 bank.close_deposit('0000002')
 assert bank.calc_deposit_interest_rate('0000001') == 1104.71

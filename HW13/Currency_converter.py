@@ -33,6 +33,7 @@ petya = Person('EUR', 5)
 # Если валюта не задана, то конвертация происходит в BYN:
 print(converter.exchange_currency(vasya.currency, vasya.amount))
 print(converter.exchange_currency(petya.currency, petya.amount, 'USD'))
+
 assert converter.exchange_currency(vasya.currency, vasya.amount) == (32.4, "BYN")
 assert converter.exchange_currency(petya.currency, petya.amount) == (17.0, "BYN")
 
