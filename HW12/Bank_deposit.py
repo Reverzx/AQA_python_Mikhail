@@ -32,7 +32,7 @@ class Bank:
                     f"с номером {client_id}. Стартовый баланс {start_balance}. "
                     f"Срок депозита - {years} год(а)")
         else:
-            return f"Такого клиента не существует!"
+            return "Такого клиента не существует!"
 
     def calc_deposit_interest_rate(self, client_id):
         deposit_itog = round(self.data_clients[client_id]["start_balance"] *
@@ -43,7 +43,7 @@ class Bank:
     # Добавил метод по конвертации валюты
     def converter_deposit(self, client_id, out_currency):
         if client_id not in self.data_clients:
-            return f"Клиент отсутсвует в базе"
+            return "Клиент отсутсвует в базе"
 
         deposit_itog = self.calc_deposit_interest_rate(client_id)
         converted_value, currency = self.converter.exchange_currency("BYN",
@@ -58,7 +58,7 @@ class Bank:
             self.data_clients[client_id]["start_balance"] = None
             self.data_clients[client_id]["years"] = None
         else:
-            return f"Клиент сначала должен открыть депозит"
+            return "Клиент сначала должен открыть депозит"
 
 
 bank = Bank()
