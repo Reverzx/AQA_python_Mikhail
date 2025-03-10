@@ -19,9 +19,6 @@ class Bank:
             "start_balance": None,
             "years": None
         }
-        if __name__ == "__main__":
-            print(f"Приветствуем нового клиента банка {name} "
-                  f"с индивидуальным номером {self.client_id}")
         self.client_id = f"{(int(self.client_id) + 1):07d}"
 
     def open_deposit_account(self, client_id, start_balance, years):
@@ -31,30 +28,22 @@ class Bank:
             self.years = years
             self.data_clients[client_id]["start_balance"] = self.start_balance
             self.data_clients[client_id]["years"] = self.years
-            if __name__ == "__main__":
-                print(f"Открыт депозит клиента {self.data_clients[client_id]['name']} с номером "
-                      f"{client_id}. Стартовый баланс {start_balance}."
-                      f" Срок депозита - {years} год(а)")
+            return (f"Открыт депозит клиента {self.data_clients[client_id]['name']} "
+                    f"с номером {client_id}. Стартовый баланс {start_balance}. "
+                    f"Срок депозита - {years} год(а)")
         else:
-            if __name__ == "__main__":
-                print("Такого клиента не существует!")
+            return f"Такого клиента не существует!"
 
     def calc_deposit_interest_rate(self, client_id):
         deposit_itog = round(self.data_clients[client_id]["start_balance"] *
                              (1 + self.interest_rate / 12)
                              ** (12 * self.data_clients[client_id]["years"]), 2)
-        if __name__ == "__main__":
-            print(f"У клиента {self.data_clients[client_id]['name']} с номером {client_id}"
-                  f" итоговый баланс по окончанию срока действия депозита "
-                  f"через {self.data_clients[client_id]['years']} год(а) будет равен "
-                  f"{deposit_itog}")
         return deposit_itog
 
     # Добавил метод по конвертации валюты
     def converter_deposit(self, client_id, out_currency):
         if client_id not in self.data_clients:
-            print("Клиент отсутсвует в базе")
-            return None
+            return f"Клиент отсутсвует в базе"
 
         deposit_itog = self.calc_deposit_interest_rate(client_id)
         converted_value, currency = self.converter.exchange_currency("BYN",
@@ -66,14 +55,10 @@ class Bank:
 
     def close_deposit(self, client_id):
         if self.data_clients[client_id]["start_balance"]:
-            if __name__ == "__main__":
-                print(f"Клиент {self.data_clients[client_id]['name']} решает "
-                      f"закрыть свой депозит")
             self.data_clients[client_id]["start_balance"] = None
             self.data_clients[client_id]["years"] = None
         else:
-            if __name__ == "__main__":
-                print("Клиент сначала должен открыть депозит")
+            return f"Клиент сначала должен открыть депозит"
 
 
 bank = Bank()
