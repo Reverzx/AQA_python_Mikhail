@@ -23,14 +23,14 @@ try:
     for i in (re.findall(pattern, file_str)):
         if i[1] not in students:
             count_student = 1
-            avg_score = statistics.mean(list(map(int, i[2].split(", "))))
+            avg_score = statistics.mean(list(map(float, i[2].split(", "))))
             students[i[1]] = {
                     "count_student": count_student,
                     "avg_score": round(avg_score/count_student, 2)
                 }
         else:
             count_student += 1
-            avg_score += statistics.mean(list(map(int, i[2].split(", "))))
+            avg_score += statistics.mean(list(map(float, i[2].split(", "))))
             students[i[1]] = {
                 "count_student": count_student,
                 "avg_score": round(avg_score/count_student, 2)
