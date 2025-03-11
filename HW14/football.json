@@ -1,0 +1,29 @@
+{
+    "football": [
+        {
+            "name": "Real Madrid",
+            "country": "Spain",
+            "titles_won": 35
+        },
+        {
+            "name": "Manchester United",
+            "country": "England",
+            "titles_won": 20
+        },
+        {
+            "name": "Bayern Munich",
+            "country": "Germany",
+            "titles_won": 32
+        },
+        {
+            "name": "Juventus",
+            "country": "Italy",
+            "titles_won": 36
+        },
+        {
+            "name": "Paris Saint-Germain",
+            "country": "France",
+            "titles_won": 10
+        }
+    ]
+}
