@@ -18,7 +18,7 @@ try:
     pattern = r"name: (.*?), group: (.*?), grades: \[(.*?)\]"
     count_student = 0
     students = {}
-    avg_score = 0
+    avg_score = float
     all_students = 0
     for i in (re.findall(pattern, file_str)):
         if i[1] not in students:
@@ -40,7 +40,7 @@ try:
     print(f"Общее количество студентов {all_students}")
     with open("students.txt", "a", encoding="utf-8") as file:
         file.write("\n Статистика студентов: \n")
-        file.write((f"Общее количество студентов: {all_students} \n"))
+        file.write(f"Общее количество студентов: {all_students} \n")
     for i, s in students.items():
         print((f"В группе {i} учится {s['count_student']} студентов. "
                f"Их средняя оценка: {s['avg_score']}"))
