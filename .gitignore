@@ -4,6 +4,10 @@ __pycache__/
 *$py.class
 practice.py
 students.txt
+books.yaml
+file_xml.xml
+football.json
+Text_with_data.txt
 
 # Environments
 venv/

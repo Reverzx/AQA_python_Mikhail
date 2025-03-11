@@ -18,7 +18,7 @@ try:
     pattern = r"name: (.*?), group: (.*?), grades: \[(.*?)\]"
     count_student = 0
     students = {}
-    avg_score = float
+    avg_score: float
     all_students = 0
     for i in (re.findall(pattern, file_str)):
         if i[1] not in students:
