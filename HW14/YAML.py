@@ -1,5 +1,4 @@
 import yaml
-import re
 
 data = {
     "books": [
@@ -15,15 +14,9 @@ with open("books.yaml", "w", encoding="utf-8") as file:
     yaml.dump(data, file, allow_unicode=True)
 
 with open("books.yaml", "r", encoding="utf-8") as file:
-    file_str = file.read()
-    title_pattern = r'title:\s*(.+)'
-    author_pattern = r'author:\s*(.+)'
-    year_pattern = r'year:\s*(\d+)'
-    name_list = re.findall(title_pattern, file_str)
-    author_list = re.findall(author_pattern, file_str)
-    year_list = re.findall(year_pattern, file_str)
-    for n, a, y in zip(name_list, author_list, year_list):
-        print(f"Название книги: {n}; Автор: {a}; Год издания: {y}")
+    books_yaml = yaml.safe_load(file)
+    for i in books_yaml['books']:
+        print(f"Название книги: {i['title']}; Автор: {i['author']}; Год издания: {i['year']}")
 
 with open("books.yaml", "w", encoding="utf-8") as file:
     title = input("Введите название книги: ")
@@ -40,6 +33,4 @@ with open("books.yaml", "w", encoding="utf-8") as file:
         'year': year
     })
     print("Книга успешно добавлена!")
-    # {"title": title, "author": author, "year": year}
-    # f'"title": {title}, "author": {author}, "year": {year}'
     yaml.dump(data, file, allow_unicode=True)
