@@ -3,6 +3,11 @@ __pycache__/
 *.py[cod]
 *$py.class
 practice.py
+students.txt
+books.yaml
+file_xml.xml
+football.json
+Text_with_data.txt
 user_logs.log
 
 # Environments
