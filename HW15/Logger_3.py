@@ -32,15 +32,15 @@ try:
             count_student = 1
             avg_score = statistics.mean(list(map(float, i[2].split(", "))))
             students[i[1]] = {
-                    "count_student": count_student,
-                    "avg_score": round(avg_score/count_student, 2)
-                }
+                "count_student": count_student,
+                "avg_score": round(avg_score / count_student, 2)
+            }
         else:
             count_student += 1
             avg_score += statistics.mean(list(map(float, i[2].split(", "))))
             students[i[1]] = {
                 "count_student": count_student,
-                "avg_score": round(avg_score/count_student, 2)
+                "avg_score": round(avg_score / count_student, 2)
             }
         all_students += 1
     logging.info(students)
@@ -50,10 +50,9 @@ try:
         file.write(f"Общее количество студентов: {all_students} \n")
     for i, s in students.items():
         logging.info((f"В группе {i} учится {s['count_student']} студентов. "
-               f"Их средняя оценка: {s['avg_score']}"))
+                      f"Их средняя оценка: {s['avg_score']}"))
         with open("students.txt", "a", encoding="utf-8") as file:
             file.write(f"В группе {i} учится {s['count_student']} студентов. "
                        f"Их средняя оценка: {s['avg_score']} \n")
 except FileExistsError:
     logging.critical("Невозможно прочитать файл")
-

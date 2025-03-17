@@ -2,26 +2,23 @@ import logging
 from logging.handlers import TimedRotatingFileHandler
 import os
 import glob
-
+import re
 
 log_directory = "logs"
 log_filename = os.path.join(log_directory, "user_actions.log")
 
-
 if not os.path.exists(log_directory):
     os.makedirs(log_directory)
-
 
 handler = TimedRotatingFileHandler(
     log_filename, when="midnight", interval=1, backupCount=7, encoding="utf-8"
 )
 handler.suffix = "%Y-%m-%d"
-handler.extMatch = r"^\d{4}-\d{2}-\d{2}$"
+handler.extMatch = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 
-
-formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
+formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s',
+                              datefmt='%Y-%m-%d %H:%M:%S')
 handler.setFormatter(formatter)
-
 
 logger = logging.getLogger("user_actions")
 logger.setLevel(logging.INFO)
@@ -47,6 +44,7 @@ def log_user(action, level=logging.INFO):
         logger.error(action)
     else:
         logger.debug(action)
+
 
 log_user("Юзер зарегистрировался в системе", logging.INFO)
 log_user("Юзер неправильно ввел пароль", logging.WARNING)

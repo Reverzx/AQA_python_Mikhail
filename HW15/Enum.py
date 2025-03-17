@@ -2,6 +2,8 @@ import logging
 from enum import Enum
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
+
+
 class OrderStatus(Enum):
     PENDING = 'Заказ ожидает обработки'
     IN_PROGRESS = 'Заказ готовится'
