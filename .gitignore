@@ -8,6 +8,7 @@ books.yaml
 file_xml.xml
 football.json
 Text_with_data.txt
+user_logs.log
 
 # Environments
 venv/

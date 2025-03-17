@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<products>
+    <product>
+        <name>Ноутбук Lenovo IdeaPad 5</name>
+        <price>75000</price>
+        <quantity>10</quantity>
+    </product>
+    <product>
+        <name>Смартфон Samsung Galaxy S23</name>
+        <price>85000</price>
+        <quantity>15</quantity>
+    </product>
+    <product>
+        <name>Наушники Sony WH-1000XM4</name>
+        <price>25000</price>
+        <quantity>20</quantity>
+    </product>
+    <product>
+        <name>Планшет Apple iPad Air</name>
+        <price>60000</price>
+        <quantity>8</quantity>
+    </product>
+    <product>
+        <name>Телевизор LG OLED55CX</name>
+        <price>120000</price>
+        <quantity>5</quantity>
+    </product>
+</products>
