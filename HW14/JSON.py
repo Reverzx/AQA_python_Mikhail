@@ -20,6 +20,7 @@ with open("football.json", "r", encoding="utf-8") as file:
         'country': None,
         'total_win': 0
     }
+    print(file_json)
     for i in file_json['football']:
         if i['total_win'] > top_team['total_win']:
             top_team.update(i)
