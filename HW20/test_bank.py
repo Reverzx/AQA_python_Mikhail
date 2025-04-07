@@ -51,7 +51,8 @@ class TestBank(unittest.TestCase):
         self.assertIsNone(self.bank.data_clients[self.client_id]["years"])
 
     def test_close_deposit_fail(self):
-        self.assertEqual(self.bank.close_deposit(self.client_id), "Клиент сначала должен открыть депозит")
+        self.assertEqual(self.bank.close_deposit(self.client_id), "Клиент сначала "
+                                                                  "должен открыть депозит")
 
 
 if __name__ == '__main__':
