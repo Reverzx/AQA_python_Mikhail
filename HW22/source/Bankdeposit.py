@@ -64,27 +64,34 @@ class Bank:
 
 
 bank = Bank()
-client_id = '0000001'
+client_id = None
+
 
 def register_test_client():
     global client_id
     client_id = bank.register_client("Test")
     return client_id
 
+
 def get_client_data():
     return bank.data_clients[client_id]
+
 
 def open_deposit(balance, years):
     return bank.open_deposit_account(client_id, balance, years)
 
+
 def open_deposit_for_invalid_client():
     return bank.open_deposit_account("9000000", 1000, 1)
+
 
 def calculate_interest():
     return bank.calc_deposit_interest_rate(client_id)
 
+
 def convert_to_currency(currency):
     return bank.converter_deposit(client_id, currency)
+
 
 def close_deposit():
     return bank.close_deposit(client_id)
