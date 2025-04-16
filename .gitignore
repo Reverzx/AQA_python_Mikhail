@@ -11,6 +11,9 @@ Text_with_data.txt
 user_logs.log
 test.txt
 report.html
+output.xml
+log.html
+
 
 # Environments
 venv/
