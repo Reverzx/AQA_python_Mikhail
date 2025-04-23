@@ -13,7 +13,7 @@ test.txt
 report.html
 output.xml
 log.html
-
+error.png
 
 # Environments
 venv/
