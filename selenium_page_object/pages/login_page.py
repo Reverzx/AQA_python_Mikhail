@@ -1,5 +1,5 @@
-from pages.base_page import BasePage
-from pages.product_list_page import ProductListPage
+from selenium_page_object.pages.base_page import BasePage
+from selenium_page_object.pages.product_list_page import ProductListPage
 from selenium.webdriver.common.by import By
 
 
