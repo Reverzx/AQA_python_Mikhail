@@ -21,4 +21,3 @@ def test_add_item_to_bucket(driver):
     lp.open()
     plp = lp.complete_login(UserCredentials.standart_user, UserCredentials.standart_password)
     assert lp.is_login_successful()
-
