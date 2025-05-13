@@ -5,7 +5,6 @@ from loguru import logger
 
 url = "https://restful-booker.herokuapp.com"
 
-
 schema = {
     "type": "object",
     "properties": {
@@ -23,7 +22,8 @@ schema = {
         },
         "additionalneeds": {"type": "string"}
     },
-    "required": ["firstname", "lastname", "totalprice", "depositpaid", "bookingdates", "additionalneeds"]
+    "required": ["firstname", "lastname", "totalprice", "depositpaid",
+                 "bookingdates", "additionalneeds"]
 }
 
 
@@ -34,7 +34,8 @@ def get_auth_token():
         "password": "password123"
     }
     response = requests.post(f"{url}/auth", json=payload)
-    assert response.status_code == 200, f"Expected to have status code 200, got {response.status_code}"
+    assert response.status_code == 200, (f"Expected to have status code 200, "
+                                         f"got {response.status_code}")
     return response.json().get("token")
 
 
@@ -70,6 +71,7 @@ def test_get_booking_positive(create_booking):
         logger.info("JSON response matches the schema")
     except Exception as e:
         logger.error("JSON response does not match schema:", e)
+
 
 def test_delete_booking_negative(get_auth_token):
     headers = {"Cookie": f"token={get_auth_token}"}
