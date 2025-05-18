@@ -1,10 +1,9 @@
 import pytest
+
 from HW28.api.auth_requests import get_token
 from HW28.api.booking_requests import create_booking
-from HW28.test_data.auth_data import auth_payload_valid, auth_payload_invalid
+from HW28.test_data.auth_data import auth_payload_valid
 from HW28.test_data.booking_data import create_booking_payload
-import requests
-from HW28.test_data.env import url
 
 
 @pytest.fixture
