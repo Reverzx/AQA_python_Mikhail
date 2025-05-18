@@ -9,3 +9,14 @@ create_booking_payload = {
         },
         "additionalneeds": "Breakfast"
     }
+
+create_booking_payload_negative = {
+        "totalprice": 0,
+        "depositpaid": True,
+        "bookingdates": {
+            "checkout": "20ропо-10-23"
+        },
+        "additionalneeds": ""
+    }
+
+invalid_booking_id = 9999999

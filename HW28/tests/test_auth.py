@@ -1,11 +1,15 @@
 from loguru import logger
+from HW28.test_data.auth_data import auth_payload_valid, auth_payload_invalid
+from HW28.api.auth_requests import get_token
 
 
-def test_login_positive(get_auth_token_valid):
-    assert get_auth_token_valid is not None
-    logger.info(f"The auth token: {get_auth_token_valid}")
+def test_login_positive():
+    token = get_token(auth_payload_valid)
+    assert token is not None
+    logger.info(f"The auth token: {token}")
 
 
-def test_login_negative(get_auth_token_invalid):
-    assert get_auth_token_invalid is None
-    logger.info(f"The auth token none: {get_auth_token_invalid}")
+def test_login_negative():
+    token = get_token(auth_payload_invalid)
+    assert token is None
+    logger.info(f"The auth token none: {token}")
